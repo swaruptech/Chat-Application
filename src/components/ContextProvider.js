@@ -10,17 +10,7 @@ const Ctp = (props) => {
 
   const [allMsg, setAllMsg] = useState([]);
 
-  const register = () => {
 
-
-    
-  };
-
-
-  const logout = () => {
-  
-
-  };
   const sendMessage = (msg) => {
     db.collection("messages").add({
       msg,
@@ -43,7 +33,7 @@ const Ctp = (props) => {
 
     
     db.collection("messages")
-      .orderBy("currentTime", "desc")
+      .orderBy("currentTime", "asc")
       .onSnapshot((snp) => {
         console.log("all message", snp.docs);
         setAllMsg(
@@ -60,7 +50,7 @@ const Ctp = (props) => {
   console.log(allMsg);
   return (
     <ContextProvider.Provider
-      value={{ register, user, loader, logout, sendMessage, allMsg }}
+      value={{  user, loader, sendMessage, allMsg }}
     >
       {props.children}
     </ContextProvider.Provider>
