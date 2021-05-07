@@ -1,5 +1,4 @@
 import React, { createContext, useEffect, useState } from "react";
-
 import { auth, db } from "../config";
 import firebase from "firebase";
 export const ContextProvider = createContext();
@@ -37,7 +36,7 @@ const ContextFun = (props) => {
       setLoader(false);
     });
 
-    // Fetch message from firestore
+    
     db.collection("messages")
       .orderBy("currentTime", "desc")
       .onSnapshot((snp) => {

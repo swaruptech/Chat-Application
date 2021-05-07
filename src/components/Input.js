@@ -1,5 +1,5 @@
 import React, { useState, useContext } from "react";
-import { ContextProvider } from "../context/ContextProvider";
+import { ContextProvider } from "./ContextProvider";
 const Input = () => {
   const { sendMessage } = useContext(ContextProvider);
   const [msg, setMsg] = useState("");

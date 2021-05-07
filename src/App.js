@@ -3,7 +3,7 @@ import "./App.css";
 
 import Navbar from "./components/Navbar";
 import Home from "./components/Home";
-import ContextFun from "./context/ContextProvider";
+import ContextFun from "./components/ContextProvider";
 function App() {
   return (
     <ContextFun>

@@ -1,7 +1,7 @@
 import React, { useState, useContext } from "react";
 import Input from "./Input";
-import { ContextProvider } from "../context/ContextProvider";
-var audio = new Audio('ting.mp3');
+import { ContextProvider } from "./ContextProvider";
+
 const Messages = () => {
   const { allMsg, user } = useContext(ContextProvider);
   return (

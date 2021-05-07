@@ -1,7 +1,7 @@
 import React from "react";
 import Welcome from "./Welcome";
 import Messages from "./Messages";
-import { ContextProvider } from "../context/ContextProvider";
+import { ContextProvider } from "./ContextProvider";
 const Home = () => {
   const { loader, user } = React.useContext(ContextProvider);
   return (

@@ -1,6 +1,5 @@
 import React from "react";
-
-import { ContextProvider } from "../context/ContextProvider";
+import { ContextProvider } from "./ContextProvider";
 const Navbar = () => {
   const { register, user, loader, logout } = React.useContext(ContextProvider);
   const userRegister = () => {
@@ -39,9 +38,7 @@ const Navbar = () => {
   };
   return (
     <div className="navbar">
-      <div className="navbar__container">
-        
-         
+      <div className="navbar__container">       
        
         <div className="navbar__logo">i-Chat</div>
         {checkUser()}
