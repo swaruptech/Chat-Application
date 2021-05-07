@@ -1,13 +1,41 @@
-import React from "react";
+import React, {  useEffect, useState } from "react";
+import { auth, db } from "./apikey";
+import firebase from "firebase";
 import { ContextProvider } from "./ContextProvider";
+
+
+
 const Navbar = () => {
-  const { register, user, loader, logout } = React.useContext(ContextProvider);
+  
+  const [user, setUser] = useState(null);
+const [loader, setLoader] = useState(false);
+  const { register,  logout } = React.useContext(ContextProvider);
   const userRegister = () => {
-    register();
+    const provider = new firebase.auth.GoogleAuthProvider();
+    firebase
+      .auth()
+            .signInWithPopup(provider)
+             .then((result) => {
+        firebase.auth().signInWithRedirect(provider);
+      });
   };
   const userLogout = () => {
-    logout();
+    auth.signOut().then(() => {
+      setUser(null);
+
+
+
+    });
   };
+  
+  useEffect(() => {
+    auth.onAuthStateChanged((user) => {
+      setUser(user);
+      setLoader(false);
+    });
+    
+  }, []);
+
   const checkUser = () => {
     return !loader ? (
       user ? (

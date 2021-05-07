@@ -4,12 +4,13 @@ import "./App.css";
 import Navbar from "./components/Navbar";
 import Home from "./components/Home";
 import ContextFun from "./components/ContextProvider";
+import Ctp from "./components/ContextProvider";
 function App() {
   return (
-    <ContextFun>
+    <Ctp>
       <Navbar />
       <Home />
-    </ContextFun>
+    </Ctp>
   );
 }
 

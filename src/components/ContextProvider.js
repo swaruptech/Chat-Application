@@ -1,35 +1,40 @@
 import React, { createContext, useEffect, useState } from "react";
-import { auth, db } from "./config";
+import { auth, db } from "./apikey";
 import firebase from "firebase";
 export const ContextProvider = createContext();
 
-const ContextFun = (props) => {
+const Ctp = (props) => {
+  
   const [user, setUser] = useState(null);
-  const [loader, setLoader] = useState(true);
+  const [loader, setLoader] = useState(false);
+
   const [allMsg, setAllMsg] = useState([]);
+
   const register = () => {
-    const provider = new firebase.auth.GoogleAuthProvider();
-    firebase
-      .auth()
-      .signInWithPopup(provider)
-      .then((result) => {
-        firebase.auth().signInWithRedirect(provider);
-      });
+
+
+    
   };
+
+
   const logout = () => {
-    auth.signOut().then(() => {
-      setUser(null);
-    });
+  
+
   };
   const sendMessage = (msg) => {
     db.collection("messages").add({
       msg,
       photo: user.photoURL,
       username: user.displayName,
+
+
       email: user.email,
       currentTime: firebase.firestore.FieldValue.serverTimestamp(),
     });
   };
+
+
+
   useEffect(() => {
     auth.onAuthStateChanged((user) => {
       setUser(user);
@@ -49,6 +54,9 @@ const ContextFun = (props) => {
         );
       });
   }, []);
+
+
+
   console.log(allMsg);
   return (
     <ContextProvider.Provider
@@ -59,4 +67,4 @@ const ContextFun = (props) => {
   );
 };
 
-export default ContextFun;
+export default Ctp;
