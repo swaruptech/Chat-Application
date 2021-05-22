@@ -10,7 +10,20 @@ const Ctp = (props) => {
 
   const [allMsg, setAllMsg] = useState([]);
 
-
+const register=()=>{
+  const provider = new firebase.auth.GoogleAuthProvider();
+  firebase
+    .auth()
+          .signInWithPopup(provider)
+           .then((result) => {
+      firebase.auth().signInWithRedirect(provider);
+    });
+};
+const logout=()=>{
+  auth.signOut().then(() => {
+    setUser(null);
+  });
+};
   const sendMessage = (msg) => {
     db.collection("messages").add({
       msg,
@@ -33,7 +46,7 @@ const Ctp = (props) => {
 
     
     db.collection("messages")
-      .orderBy("currentTime", "asc")
+      .orderBy("currentTime", "desc")
       .onSnapshot((snp) => {
         console.log("all message", snp.docs);
         setAllMsg(
@@ -50,7 +63,7 @@ const Ctp = (props) => {
   console.log(allMsg);
   return (
     <ContextProvider.Provider
-      value={{  user, loader, sendMessage, allMsg }}
+      value={{ register,logout, user, loader, sendMessage, allMsg }}
     >
       {props.children}
     </ContextProvider.Provider>

@@ -1,40 +1,18 @@
-import React, {  useEffect, useState } from "react";
-import { auth, db } from "./apikey";
-import firebase from "firebase";
+import React from "react";
 import { ContextProvider } from "./ContextProvider";
 
 
 
 const Navbar = () => {
-  
-  const [user, setUser] = useState(null);
-const [loader, setLoader] = useState(false);
-  const { register,  logout } = React.useContext(ContextProvider);
+
+  const { register, user, loader, logout } = React.useContext(ContextProvider);
   const userRegister = () => {
-    const provider = new firebase.auth.GoogleAuthProvider();
-    firebase
-      .auth()
-            .signInWithPopup(provider)
-             .then((result) => {
-        firebase.auth().signInWithRedirect(provider);
-      });
+    register();
   };
   const userLogout = () => {
-    auth.signOut().then(() => {
-      setUser(null);
-
-
-
-    });
+    logout();
   };
-  
-  useEffect(() => {
-    auth.onAuthStateChanged((user) => {
-      setUser(user);
-      setLoader(false);
-    });
-    
-  }, []);
+
 
   const checkUser = () => {
     return !loader ? (
@@ -68,7 +46,7 @@ const [loader, setLoader] = useState(false);
     <div className="navbar">
       <div className="navbar__container">       
        
-        <div className="navbar__logo">i-Chat</div>
+        <div className="navbar__logo">i-Talk</div>
         {checkUser()}
       </div>
     </div>
