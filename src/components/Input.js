@@ -17,16 +17,19 @@ const Input = () => {
     setMsg("");
   };
 
- const addEmoji = (e) => {
-   
-  let emoji = e.native;
-      setMsg(setMsg+emoji)
-    
-  };
+
 
 
   return (
+    
     <div className="input__form">
+          <span className="copyright">
+                          Copyright © 2021, All rights reserved.
+                
+              
+                 </span>
+                 
+                 <br></br>
       <form onSubmit={sendMsg}>
       
         <input
@@ -40,7 +43,8 @@ const Input = () => {
         />
       </form>
       <span>
-   <Picker onSelect={addEmoji} />
+   
+
 </span>
     </div>
   );

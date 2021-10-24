@@ -46,7 +46,7 @@ const Navbar = () => {
     <div className="navbar">
       <div className="navbar__container">       
        
-        <div className="navbar__logo">i-Talk</div>
+        <div className="navbar__logo">i-Chat</div>
         {checkUser()}
       </div>
     </div>

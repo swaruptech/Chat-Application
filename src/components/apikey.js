@@ -1,15 +1,15 @@
 import firebase from "firebase";
 
 
-  var firebaseConfig = {
-    apiKey: "AIzaSyBCeeR7O6jUefYIBCJruqxpNIBY_1g_8Mk",
-    authDomain: "messangeclone.firebaseapp.com",
-    projectId: "messangeclone",
-    storageBucket: "messangeclone.appspot.com",
-    messagingSenderId: "1086103326220",
-    appId: "1:1086103326220:web:e15b0aa47a48737dcb2829",
-    measurementId: "G-9V6CJQZ6C8"
-  };
+const firebaseConfig = {
+  apiKey: "AIzaSyA-Tiv9cFjBxnAAjhxwaNMcxSFy5Rw9K4A",
+  authDomain: "messengercloneeee.firebaseapp.com",
+  projectId: "messengercloneeee",
+  storageBucket: "messengercloneeee.appspot.com",
+  messagingSenderId: "347920317602",
+  appId: "1:347920317602:web:ff1fbd660e1cd7fd6aebfb",
+  measurementId: "G-JW9YHKNHBS"
+};
 
 
   

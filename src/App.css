@@ -186,6 +186,15 @@ body {
 .welcome h1 {
   margin-bottom: 15px;
 }
+.copyright{
+  color: #fff;
+  margin-left: 450px;
+  opacity: 30%;
+  font-style: italic;
+  font-size: 15px;
+
+
+}
 
 @media (max-width: 765px) {
   .navbar__container {
@@ -220,5 +229,10 @@ body {
   .thnx{
     text-align: center;
     font-family: serif;
+  }
+  .copyright{
+    margin-left: 80px;
+    font-style: italic;
+    font-size: 13px;
   }
 }
